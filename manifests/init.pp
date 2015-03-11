@@ -1,4 +1,4 @@
-require 'Version'
+require 'gem'
 
 class packer(
  $install_dir = $packer::params::install_dir,
@@ -15,7 +15,7 @@ class packer(
   validate_string($version)
 
   $package_name = downcase("${version}_${kernel}_${architecture}.zip")
-  if ($version >= '0.7.0' ) {
+  if ( $version >= '0.7.0' ) {
     $package_name = downcase("packer_$package_name")
   }
   

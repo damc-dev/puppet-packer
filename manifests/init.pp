@@ -1,5 +1,3 @@
-require 'gem'
-
 class packer(
  $install_dir = $packer::params::install_dir,
  $base_url = $packer::params::base_url,

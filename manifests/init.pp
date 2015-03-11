@@ -13,6 +13,10 @@ class packer(
   validate_string($version)
 
   $package_name = downcase("${version}_${kernel}_${architecture}.zip")
+  if (Gem::Version.new($version) >= Gem::Version.new('0.7.0') ) {
+    $package_name = downcase("packer_$package_name")
+  }
+  
   $full_url = "${base_url}/${package_name}"
 
   if !defined(Class['staging']) {
